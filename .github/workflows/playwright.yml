@@ -9,10 +9,6 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        repository: benparr64/kegthat-headless
-        ref: ${{ github.event.pull_request.head.sha }}
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
@@ -27,6 +23,5 @@ jobs:
       if: always()
       with:
         name: playwright-report
-        repository: benparr64/kegthat-headless
         path: playwright-report/
         retention-days: 30
