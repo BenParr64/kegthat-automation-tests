@@ -23,6 +23,12 @@ steps:
       npm install
       npm test
     displayName: 'Run Playwright tests'
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: 'path/to/test/results/*.xml'
+      searchFolder: '$(System.DefaultWorkingDirectory)'
+    displayName: 'Publish test results'
 
 schedules:
   - cron: "0 0 * * *"
